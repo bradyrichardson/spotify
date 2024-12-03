@@ -1,0 +1,1 @@
+This is a script for identifying the top new songs that come out each week by combining my own music taste with the music tastes of the US and the world! I used the Spotify API as well as my own personal data in order to build this app, and any users who are interested can do the same!
