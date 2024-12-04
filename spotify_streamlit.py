@@ -114,7 +114,7 @@ def update_chart_type():
     # Initialize second metric when switching to scatter plot
     if st.session_state.chart_type == 'Scatter Plot' and 'metric_2' not in st.session_state:
         # Set default second metric to first available option that's not the current metric
-        available_metrics = [opt for opt in plot_options if opt != st.session_state.metric]
+        available_metrics = [opt for opt in plot_options]
         st.session_state.metric_2 = available_metrics[0]
 
 with st.expander("Filter Tracks"):
@@ -159,7 +159,7 @@ with st.sidebar:
     
     # use callback to update the metric
     st.selectbox(
-        "Select primary metric to plot (y-axis)",
+        "Select primary metric to plot",
         plot_options,
         key='temp_metric',
         on_change=update_metric
@@ -167,8 +167,8 @@ with st.sidebar:
 
     # use callback for second metric
     st.selectbox(
-        "Select secondary metric for scatter plot (x-axis)", 
-        [opt for opt in plot_options if opt != st.session_state.metric],
+        "Select secondary metric for scatter plot", 
+        [opt for opt in plot_options],
         key='temp_metric_2',
         on_change=update_metric_2,
         index=plot_options.index(st.session_state.metric_2) if 'metric_2' in st.session_state else 0,
